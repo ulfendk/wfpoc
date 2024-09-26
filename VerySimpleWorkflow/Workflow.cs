@@ -33,12 +33,22 @@ public abstract class Workflow<TResult>
     }
 
 
-    private WorkflowStepResult? RestoreState(string stepName) =>
-        _context.TryGetValue(stepName, out var state) ? state : null;
+    private WorkflowStepResult? RestoreState(string stepName)
+    {
+        if (!_context.TryGetValue(stepName, out var state)) return null;
+        
+        Console.WriteLine($"Restored state for {stepName}");
+
+        return state;
+
+    }
 
     private WorkflowStepResult SaveState(string stepName, WorkflowStepResult state)
     {
-        _context.Add(stepName, state);
+        if (_context.TryAdd(stepName, state))
+        {
+            Console.WriteLine($"Saved state for {stepName}");
+        }
 
         return state;
     }
