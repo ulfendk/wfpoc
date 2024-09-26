@@ -23,7 +23,7 @@ public abstract class Workflow<TResult>
         }
         catch (Exception e)
         {
-            Console.WriteLine($"Workflow stopped stopped prematurely with the steps [{string.Join(", ", _steps.Keys)}] completed.");
+            Console.WriteLine($"  Workflow stopped stopped prematurely with the steps [{string.Join(", ", _context.Where(kv => kv.Value.HasCompleted).Select(kv => kv.Key))}] completed.");
 
             return new WorkflowResult(false, null, "null");
         }
@@ -53,7 +53,7 @@ public abstract class Workflow<TResult>
     {
         if (!_context.TryGetValue(stepName, out var state)) return null;
         
-        Console.WriteLine($"Restored state for {stepName}");
+        Console.WriteLine($"  Restored state for {stepName}");
 
         return state;
 
@@ -63,7 +63,7 @@ public abstract class Workflow<TResult>
     {
         if (_context.TryAdd(stepName, state))
         {
-            Console.WriteLine($"Saved state for {stepName}");
+            Console.WriteLine($"  Saved state for {stepName}");
         }
 
         return state;

@@ -7,7 +7,7 @@ wf.RegisterStepsFrom(typeof(AccountSteps));
 Console.WriteLine($"Executing workflow in {nameof(GetBalancesWorkflow)} first time");
 var balances = wf.Execute("mm");
 Console.WriteLine(balances.HasCompleted
-    ? $"Balances: {string.Join(", ", balances)}"
+    ? $"Balances: [{string.Join(", ", (decimal[])balances.Result)}]"
     : "Workflow failed");
 
 
@@ -16,5 +16,5 @@ Console.WriteLine();
 Console.WriteLine($"Executing workflow in {nameof(GetBalancesWorkflow)} second time");
 balances = wf.Execute("mm");
 Console.WriteLine(balances.HasCompleted
-    ? $"Balances: {string.Join(", ", balances)}"
+    ? $"Balances: [{string.Join(", ", (decimal[])balances.Result)}]"
     : "Workflow failed");
