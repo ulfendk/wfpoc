@@ -1,0 +1,14 @@
+/Users/E140267/work/VerySimpleWorkflow/bin/Debug/net8.0/VerySimpleWorkflow
+/Users/E140267/work/VerySimpleWorkflow/bin/Debug/net8.0/VerySimpleWorkflow.deps.json
+/Users/E140267/work/VerySimpleWorkflow/bin/Debug/net8.0/VerySimpleWorkflow.runtimeconfig.json
+/Users/E140267/work/VerySimpleWorkflow/bin/Debug/net8.0/VerySimpleWorkflow.dll
+/Users/E140267/work/VerySimpleWorkflow/bin/Debug/net8.0/VerySimpleWorkflow.pdb
+/Users/E140267/work/VerySimpleWorkflow/obj/Debug/net8.0/VerySimpleWorkflow.GeneratedMSBuildEditorConfig.editorconfig
+/Users/E140267/work/VerySimpleWorkflow/obj/Debug/net8.0/VerySimpleWorkflow.AssemblyInfoInputs.cache
+/Users/E140267/work/VerySimpleWorkflow/obj/Debug/net8.0/VerySimpleWorkflow.AssemblyInfo.cs
+/Users/E140267/work/VerySimpleWorkflow/obj/Debug/net8.0/VerySimpleWorkflow.csproj.CoreCompileInputs.cache
+/Users/E140267/work/VerySimpleWorkflow/obj/Debug/net8.0/VerySimpleWorkflow.dll
+/Users/E140267/work/VerySimpleWorkflow/obj/Debug/net8.0/refint/VerySimpleWorkflow.dll
+/Users/E140267/work/VerySimpleWorkflow/obj/Debug/net8.0/VerySimpleWorkflow.pdb
+/Users/E140267/work/VerySimpleWorkflow/obj/Debug/net8.0/VerySimpleWorkflow.genruntimeconfig.cache
+/Users/E140267/work/VerySimpleWorkflow/obj/Debug/net8.0/ref/VerySimpleWorkflow.dll
