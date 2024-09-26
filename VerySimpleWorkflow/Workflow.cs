@@ -23,7 +23,7 @@ public abstract class Workflow<TResult>
         }
         catch (Exception e)
         {
-            Console.WriteLine($"  Workflow stopped stopped prematurely with the steps [{string.Join(", ", _context.Where(kv => kv.Value.HasCompleted).Select(kv => kv.Key))}] completed.");
+            Console.WriteLine($"  Workflow stopped prematurely with the steps [{string.Join(", ", _context.Where(kv => kv.Value.HasCompleted).Select(kv => kv.Key))}] completed.");
 
             return new WorkflowResult(false, null, "null");
         }
