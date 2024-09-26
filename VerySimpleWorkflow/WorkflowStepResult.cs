@@ -4,3 +4,5 @@ public record struct WorkflowStepResult(bool HasCompleted, object? Result, strin
 {
     public TResult ResultAs<TResult>() => (TResult)Result;
 };
+
+public record struct WorkflowResult(bool HasCompleted, object? Result, string ResultType);

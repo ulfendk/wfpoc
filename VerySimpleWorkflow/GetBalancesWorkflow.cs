@@ -2,7 +2,7 @@ namespace VerySimpleWorkflow;
 
 public class GetBalancesWorkflow() : Workflow<decimal[]>()
 {
-    public override decimal[] Run(object input)
+    protected override decimal[] Implementation(object input)
     {
         var accountsResult = ExecuteStep("GetAccounts", input);
         if (accountsResult.Result is null)

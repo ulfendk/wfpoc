@@ -2,6 +2,7 @@ namespace VerySimpleWorkflow;
 
 public static class AccountSteps
 {
+    private static int counter = 0;
     [WorkflowStep(nameof(GetAccounts))]
     public static string[] GetAccounts(string owner)
     {
@@ -11,6 +12,11 @@ public static class AccountSteps
     [WorkflowStep(nameof(GetBalances))]
     public static decimal[] GetBalances(string[] accounts)
     {
+        if (counter++ == 0)
+        {
+            throw new Exception("Fail on first call");
+        }
+
         return new[] { 666m, 911m };
     }
 }

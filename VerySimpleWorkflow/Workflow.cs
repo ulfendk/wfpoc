@@ -11,7 +11,23 @@ public abstract class Workflow<TResult>
     {
     }
 
-    public abstract TResult Run(object input);
+    protected abstract TResult Implementation(object input);
+
+    public WorkflowResult Execute(object input)
+    {
+        try
+        {
+            var result = Implementation(input);
+
+            return new WorkflowResult(true, result, result?.GetType()?.Name ?? "null");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Workflow stopped stopped prematurely with the steps [{string.Join(", ", _steps.Keys)}] completed.");
+
+            return new WorkflowResult(false, null, "null");
+        }
+    }
 
     public void RegisterStepsFrom(Type type)
     {
