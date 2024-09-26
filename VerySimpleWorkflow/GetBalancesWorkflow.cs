@@ -11,6 +11,6 @@ public class GetBalancesWorkflow() : Workflow<decimal[]>()
         }
 
         var balancesResult = ExecuteStep("GetBalances", accountsResult.ResultAs<string[]>());
-        return balancesResult.ResultAs<decimal[]>().ToArray();
+        return balancesResult.ResultAs<decimal[]>();
     }
 }
