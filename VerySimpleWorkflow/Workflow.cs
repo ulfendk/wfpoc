@@ -36,8 +36,12 @@ public abstract class Workflow<TResult>
     private WorkflowStepResult? RestoreState(string stepName) =>
         _context.TryGetValue(stepName, out var state) ? state : null;
 
-    protected void SaveState(string stepName, WorkflowStepResult state) =>
+    private WorkflowStepResult SaveState(string stepName, WorkflowStepResult state)
+    {
         _context.Add(stepName, state);
+
+        return state;
+    }
 
     protected WorkflowStepResult ExecuteStep(string stepName, object input)
     {
@@ -49,7 +53,9 @@ public abstract class Workflow<TResult>
 
         var result = GetStep(stepName).Invoke(input);
         
-        return new WorkflowStepResult(true, result, result?.GetType()?.ToString() ?? "null");
+        var stepResult = new WorkflowStepResult(true, result, result?.GetType()?.ToString() ?? "null");
+        
+        return SaveState(stepName, stepResult);
     }
 
     private Func<object, object?> GetStep(string stepName) => _steps.TryGetValue(stepName, out var step) ? step : throw new InvalidOperationException($"Step {stepName} not found");
